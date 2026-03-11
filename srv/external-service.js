@@ -9,4 +9,10 @@ module.exports = cds.service.impl(async function () {
     const result = await northwindService.run(req.query);
     return result;
   });
+
+   this.on('READ', 'Orders', async (req) => {
+    // Forward the request to Northwind OData service's Products entity set
+    const result = await northwindService.run(req.query);
+    return result;
+  });
 });
